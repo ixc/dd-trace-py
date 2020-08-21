@@ -127,7 +127,7 @@ setup(
         long_description_content_type="text/markdown",
         license="BSD",
         packages=find_packages(exclude=["tests*"]),
-        python_requires=">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*",
+        # python_requires=">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*",
         # enum34 is an enum backport for earlier versions of python
         # funcsigs backport required for vendored debtcollector
         install_requires=[
