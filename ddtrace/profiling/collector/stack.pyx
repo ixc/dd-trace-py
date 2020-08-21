@@ -29,10 +29,10 @@ if _nogevent.is_module_patched("threading"):
     _main_thread_id = _nogevent.thread_get_ident()
 else:
     from ddtrace.vendor.six.moves._thread import get_ident as _thread_get_ident
-    if six.PY2:
-        _main_thread_id = threading._MainThread().ident
-    else:
+    try:
         _main_thread_id = threading.main_thread().ident
+    except AttributeError:
+        _main_thread_id = threading._MainThread().ident
 
 
 # NOTE: Do not use LOG here. This code runs under a real OS thread and is unable to acquire any lock of the `logging`
